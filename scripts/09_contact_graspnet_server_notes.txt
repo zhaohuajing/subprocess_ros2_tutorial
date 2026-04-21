@@ -1,0 +1,10 @@
+Suggested usage:
+1. Start the Contact-GraspNet container.
+2. Run the ROS 2 server on the host.
+3. Call the ROS 2 service with a scene name.
+4. Let the server use subprocess to enter Docker, run inference, parse JSON, and return grasps.
+
+Example commands:
+docker start contact_graspnet_container
+ros2 run contact_graspnet_ros2 grasp_executor_rgbd_server
+ros2 service call /get_grasps contact_graspnet_ros2/srv/GetGrasps "{scene_name: 'scene_from_ucn'}"

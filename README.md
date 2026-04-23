@@ -46,7 +46,7 @@ In other words:
 This tutorial bundle is organized as follows:
 
 ```text
-subprocess_ros2_tutorial_v2/
+subprocess_ros2_tutorial/
 ├── README.md
 ├── subprocess_ros2_tutorial.docx
 ├── scripts/
@@ -135,7 +135,7 @@ cat outputs/demo_output.txt
 Run the Python example from the tutorial root folder:
 
 ```bash
-cd subprocess_ros2_tutorial_v2
+cd subprocess_ros2_tutorial
 python scripts/part1_create_file.py
 cat outputs/demo_output.txt
 ```
@@ -263,7 +263,7 @@ python -c "import json; print(json.dumps({'status': 'ok', 'message': 'hello', 'v
 ### Suggested terminal commands
 
 ```bash
-cd subprocess_ros2_tutorial_v2
+cd subprocess_ros2_tutorial
 python scripts/part2_json_example.py
 ```
 
@@ -353,7 +353,7 @@ docker exec demo_container bash -lc "echo 'Hello from inside Docker' > /tmp/dock
 After the container is created, run the example:
 
 ```bash
-cd subprocess_ros2_tutorial_v2
+cd subprocess_ros2_tutorial
 python scripts/part3_docker_example.py
 docker exec demo_container bash -lc "cat /tmp/docker_demo.txt"
 ```

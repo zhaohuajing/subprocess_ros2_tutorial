@@ -550,7 +550,7 @@ This allows you to:
 
 ---
 
-## Part 6. Walkthrough of the subprocess block in the Contact-GraspNet server
+## Walkthrough of the subprocess block in the Contact-GraspNet server
 
 The following section summarizes the key subprocess logic from the Contact-GraspNet server implementation, based on the uploaded server example.
 
@@ -645,7 +645,7 @@ This makes the parsing more reliable when there are other logs printed to standa
 
 ---
 
-## Part 7. Suggested execution workflow for the full Contact-GraspNet wrapper
+## Suggested execution workflow for the full Contact-GraspNet wrapper
 
 A typical workflow looks like this:
 

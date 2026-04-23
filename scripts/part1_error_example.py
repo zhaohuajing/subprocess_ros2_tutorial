@@ -1,13 +1,8 @@
+#!/usr/bin/env python3
 import subprocess
 
-cmd = [
-    "bash",
-    "-lc",
-    "echo 'Hello from subprocess' > demo_output.txt"
-]
-
+cmd = ["bash", "-lc", "cat file_that_does_not_exist.txt"]
 result = subprocess.run(cmd, capture_output=True, text=True)
 
 print("Return code:", result.returncode)
-print("STDOUT:", result.stdout)
 print("STDERR:", result.stderr)

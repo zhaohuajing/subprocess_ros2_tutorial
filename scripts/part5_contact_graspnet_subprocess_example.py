@@ -1,5 +1,5 @@
+#!/usr/bin/env python3
 import subprocess
-
 
 def run_inference_in_docker(scene_name: str) -> str:
     container_name = "contact_graspnet_container"
@@ -32,28 +32,10 @@ def run_inference_in_docker(scene_name: str) -> str:
     if result.returncode != 0:
         raise RuntimeError(f"Inference failed: {result.stderr}")
 
-    start_marker = "<<<BEGIN_JSON>>>"
-    end_marker = "<<<END_JSON>>>"
-
-    json_text = None
-    start = result.stdout.find(start_marker)
-    end = result.stdout.find(end_marker, start)
-    if start != -1 and end != -1:
-        json_text = result.stdout[start + len(start_marker):end].strip()
-        print("Extracted JSON using markers.")
-    else:
-        for line in result.stdout.splitlines():
-            if line.strip().startswith("{") and line.strip().endswith("}"):
-                json_text = line.strip()
-                break
-
-    if json_text is None:
-        preview = result.stdout[:500]
-        raise RuntimeError(f"Inference did not return valid JSON. Preview:\n{preview}")
-
-    return json_text
+    return result.stdout
 
 
 if __name__ == "__main__":
-    scene_name = "scene_from_ucn"
-    print(run_inference_in_docker(scene_name))
+    print("This script shows the subprocess pattern used by the Contact-GraspNet ROS 2 wrapper.")
+    print("Example usage inside a larger ROS 2 server:")
+    print("    output = run_inference_in_docker('sample_scene')")

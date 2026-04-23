@@ -1,11 +1,12 @@
+#!/usr/bin/env python3
 import subprocess
 
+container_name = "demo_container"
+
 cmd = [
-    "bash",
-    "-lc",
-    "echo 'Line 1' > demo_output.txt && "
-    "echo 'Line 2' >> demo_output.txt && "
-    "cat demo_output.txt"
+    "docker", "exec", container_name,
+    "bash", "-lc",
+    "echo 'Hello from inside Docker' > /tmp/docker_demo.txt && cat /tmp/docker_demo.txt"
 ]
 
 result = subprocess.run(cmd, capture_output=True, text=True)
